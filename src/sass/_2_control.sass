@@ -1,0 +1,77 @@
+
+$colour_black: #000000
+$colour_white: #ffffff
+
+
+$colour_background: #181b23
+
+
+
+
+@mixin transition-property($property...)
+	-moz-transition-property: $property
+	-o-transition-property: $property
+	-webkit-transition-property: $property
+	transition-property: $property
+@mixin transition-duration($duration...)
+	-moz-transition-duration: $duration
+	-o-transition-duration: $duration
+	-webkit-transition-duration: $duration
+	transition-duration: $duration
+
+@mixin simpleTransition($properties...)
+	+transition-property($properties)
+	+transition-duration(0.2s)
+
+@mixin txt($c,$s,$h,$m:1rem)
+	color: $c
+	font-size: $s
+	line-height: $h
+	margin-bottom: $m
+
+@mixin bbox
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+
+@mixin clearly
+	&:after
+		content: ''
+		display: table
+		height: 0
+		clear: both
+
+@mixin atTiny
+	@media (min-width: 320px)
+		@content
+
+@mixin atSmall
+	@media (min-width: 480px)
+		@content
+
+@mixin atMedium
+	@media (min-width: 640px)
+		@content
+
+@mixin atBlend
+	@media (min-width: 800px)
+		@content
+
+@mixin atTablet
+	@media (min-width: 1024px)
+		@content
+
+@mixin atFull
+	@media (min-width: 1280px)
+		@content
+
+@mixin fullLeft
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+
+@mixin forPrint
+	@media print
+		@content
