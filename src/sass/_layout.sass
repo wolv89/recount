@@ -1,5 +1,62 @@
 
-.App
+.app
 	padding: 5rem 10%
 	position: relative
 	z-index: 32
+
+	&__border
+		border: 0.5rem solid rgba(255,255,255,0.1)
+
+.field
+	text-align: center
+	padding: 2rem
+
+	&__input
+		+bbox
+		width: 100%
+		margin: 0 auto
+		max-width: 600px
+		+txt($colour_black, 1.5rem, 2rem, 0)
+		padding: 0.6rem 1rem
+		border: 0
+		outline: none
+		background: rgba(255,255,255,0.3)
+		font-family: 'Open Sans', sans-serif
+		text-align: center
+		border: 0.3rem solid rgba(255,255,255,0.3)
+		+simpleTransition(background)
+
+		&:hover
+			background: rgba(255,255,255,0.5)
+
+		&:focus
+			background: rgba(255,255,255,0.8)
+
+
+.counter
+	padding: 3rem 0 1rem
+
+	&__title
+		+txt($colour_free, 7rem, 8rem, 0)
+		font-family: 'Teko', sans-serif
+		font-weight: 500
+		text-align: center
+		text-transform: uppercase
+		text-shadow: 0 0 10px $colour_free
+
+		span
+			&.u
+				color: $colour_used
+				text-shadow: 0 0 10px $colour_used
+
+
+.compare
+	padding: 1rem 0 3rem
+
+	&__title
+		+txt($colour_compare, 7rem, 8rem, 0)
+		font-family: 'Teko', sans-serif
+		font-weight: 500
+		text-align: center
+		text-transform: uppercase
+		text-shadow: 0 0 10px rgba(28, 94, 216, 0.5)

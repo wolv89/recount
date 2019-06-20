@@ -216,7 +216,90 @@ em {
 .align-centre {
   text-align: center; }
 
-.App {
+.app {
   padding: 5rem 10%;
   position: relative;
   z-index: 32; }
+  .app__border {
+    border: 0.5rem solid rgba(255, 255, 255, 0.1); }
+
+.field {
+  text-align: center;
+  padding: 2rem; }
+  .field__input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 600px;
+    color: #000000;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 0;
+    padding: 0.6rem 1rem;
+    border: 0;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    border: 0.3rem solid rgba(255, 255, 255, 0.3);
+    -moz-transition-property: background;
+    -o-transition-property: background;
+    -webkit-transition-property: background;
+    transition-property: background;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s; }
+    .field__input:hover {
+      background: rgba(255, 255, 255, 0.5); }
+    .field__input:focus {
+      background: rgba(255, 255, 255, 0.8); }
+
+.counter {
+  padding: 3rem 0 1rem; }
+  .counter__title {
+    color: #1ba70a;
+    font-size: 7rem;
+    line-height: 8rem;
+    margin-bottom: 0;
+    font-family: 'Teko', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #1ba70a; }
+    .counter__title span.u {
+      color: #404040;
+      text-shadow: 0 0 10px #404040; }
+
+.compare {
+  padding: 1rem 0 3rem; }
+  .compare__title {
+    color: #2657de;
+    font-size: 7rem;
+    line-height: 8rem;
+    margin-bottom: 0;
+    font-family: 'Teko', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(28, 94, 216, 0.5); }
+
+.header {
+  padding: 2rem 0 0; }
+  .header__title {
+    text-align: center;
+    font-family: 'Teko', sans-serif;
+    font-weight: 500;
+    color: #bb0a44;
+    font-size: 7rem;
+    line-height: 8rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-shadow: 0 -4px 20px rgba(255, 82, 162, 0.2); }
+    .header__title span {
+      color: #0e090e; }
+
+.footer {
+  padding: 2rem 0; }
