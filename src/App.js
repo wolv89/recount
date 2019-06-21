@@ -5,24 +5,75 @@ import Cluster from './Support/Cluster';
 class App extends Component {
 
 	state = {
-		counter: '',
-		compare: ''
+		counter: 'Swans vs Hawk',
+		compare: '',
+		letters: []
 	}
 
 
-	editField = (event, field) => {
+	editCounter = (event) => {
+
+		const letters = [];
+		if(event.target.value) {
+			for(let l in event.target.value) {
+				const the_letter = event.target.value[l].toUpperCase();
+				letters.push({id: l, name: the_letter, used: 0});
+			}
+		}
 
 		const updated_state = {
-			...this.state
+			counter: event.target.value,
+			compare: '',
+			letters: letters
 		};
 
-		updated_state[field] = event.target.value;
+		this.setState(updated_state);
+
+	}
+
+
+
+	editCompare = (event) => {
+
+		const letters = [...this.state.letters];
+
+		for(let letter in letters) {
+			letters[letter].used = 0;
+		}
+
+		if(event.target.value) {
+			for(let l in event.target.value) {
+				const the_letter = event.target.value[l].toUpperCase();
+				// letters.push({id: l, name: the_letter, used: 0});
+				for(let letter in letters) {
+					if(letters[letter].name === the_letter && letters[letter].used !== 1) {
+						letters[letter].used = 1;
+						break;
+					}
+				}
+			}
+		}
+
+		const updated_state = {
+			...this.state,
+			compare: event.target.value,
+			letters: letters
+		};
+
 		this.setState(updated_state);
 
 	}
 
 
 	render() {
+
+		let the_counter = this.state.letters
+			.map(letter => {
+				let className = '';
+				if(letter.used) className = 'u';
+				return <span key={letter.id} className={className}>{letter.name}</span>;
+			});
+
 		return (
 			<Cluster>
 				<div className="backlight"></div>
@@ -39,11 +90,11 @@ class App extends Component {
 						<main>
 
 							<div className="field field--top">
-								<input value={this.state.counter} onChange={(event) => this.editField(event,'counter')} type="text" className="field__input" placeholder="Words or Phrase" />
+								<input value={this.state.counter} onChange={(event) => this.editCounter(event)} type="text" className="field__input" placeholder="Words or Phrase" />
 							</div>
 
 							<div className="counter">
-								<h3 className="counter__title">{this.state.counter}</h3>
+								<h3 className="counter__title">{the_counter}</h3>
 							</div>
 
 							<div className="compare">
@@ -51,7 +102,7 @@ class App extends Component {
 							</div>
 
 							<div className="field field--bottom">
-								<input value={this.state.compare} onChange={(event) => this.editField(event,'compare')} type="text" className="field__input" placeholder="Compare" />
+								<input value={this.state.compare} onChange={(event) => this.editCompare(event)} type="text" className="field__input" placeholder="Compare" />
 							</div>
 
 						</main>
